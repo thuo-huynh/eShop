@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -77,6 +76,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --font-raleway: "Raleway", sans-serif;
 }
 
 .dark {
@@ -113,11 +113,19 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+body {
+  font-family: var(--font-raleway);
+}
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .hoverEffect {
+    @apply transition-all ease-in-out duration-300 cursor-pointer;
   }
 }
