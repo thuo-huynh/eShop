@@ -1,3 +1,4 @@
+import Header from '@/components/layout/header/header';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
@@ -22,7 +23,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${raleway.variable} antialiased`}>{children}</body>
+        <body className={`${raleway.variable} antialiased`}>
+          <Header />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
