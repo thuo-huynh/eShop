@@ -1,9 +1,9 @@
-import CartIcon from '@/components/cart-icon';
 import Logo from '@/components/logo';
 import SearchBar from '@/components/search-bar';
 import { getAllCategories, getMyOrders } from '@/sanity/helpers/queries';
 import { ClerkLoaded, SignedIn, SignInButton, UserButton } from '@clerk/nextjs';
 import { auth, currentUser } from '@clerk/nextjs/server';
+import CartIcon from '@/components/cart/cart-icon';
 import Container from '@/components/layout/container';
 import HeaderMenu from '@/components/layout/header/header-menu';
 import Link from 'next/link';
@@ -20,7 +20,7 @@ export default async function Header({}: Props) {
     orders = await getMyOrders(userId);
   }
   return (
-    <header className="border-b border-b-gray-400 py-5 sticky top-0 z-50 bg-white">
+    <header className="border-b border-b-gray-200 py-5 sticky top-0 z-50 bg-white">
       <Container className="flex items-center justify-between gap-7 text-lightColor">
         <HeaderMenu categories={categories} />
         <div className="w-auto md:w-1/3 flex items-center justify-center gap-2.5">

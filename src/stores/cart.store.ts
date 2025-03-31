@@ -1,6 +1,6 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import { Product } from "./sanity.types";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { Product } from '../../sanity.types';
 
 // Core types
 export interface CartItem {
@@ -52,7 +52,7 @@ const useCartStore = create<CartState>()(
       addItem: (product) =>
         set((state) => {
           const existingItemIndex = state.items.findIndex(
-            (item) => item.product._id === product._id
+            (item) => item.product._id === product._id,
           );
 
           if (existingItemIndex > -1) {
@@ -87,33 +87,24 @@ const useCartStore = create<CartState>()(
 
       // Selectors
       getTotalPrice: () => {
-        return get().items.reduce(
-          (total, item) => total + calculateItemPrice(item),
-          0
-        );
+        return get().items.reduce((total, item) => total + calculateItemPrice(item), 0);
       },
 
       getSubtotalPrice: () => {
-        return get().items.reduce(
-          (total, item) => total + calculateItemSubtotal(item),
-          0
-        );
+        return get().items.reduce((total, item) => total + calculateItemSubtotal(item), 0);
       },
 
       getItemCount: (productId) => {
-        return (
-          get().items.find((item) => item.product._id === productId)
-            ?.quantity ?? 0
-        );
+        return get().items.find((item) => item.product._id === productId)?.quantity ?? 0;
       },
 
       getGroupedItems: () => get().items,
     }),
     {
-      name: "cart-store",
+      name: 'cart-store',
       version: 1,
-    }
-  )
+    },
+  ),
 );
 
 export default useCartStore;

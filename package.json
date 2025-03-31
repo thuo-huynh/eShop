@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.5",
+    "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-popover": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
@@ -26,6 +27,7 @@
     "nextjs-toploader": "^3.7.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
     "sanity": "^3.81.0",
     "stripe": "^17.7.0",
     "styled-components": "^6.1.16",
