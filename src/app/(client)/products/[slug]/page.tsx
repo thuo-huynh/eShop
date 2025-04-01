@@ -2,6 +2,7 @@ import AddToCartButton from '@/components/cart/add-to-cart-button';
 import ImageView from '@/components/image-view';
 import Container from '@/components/layout/container';
 import PriceView from '@/components/product/price-view';
+import ProductCharacteristics from '@/components/product/product-characteristics';
 import { getProductBySlug } from '@/sanity/helpers/queries';
 import { BoxIcon, FileQuestion, Heart, ListOrderedIcon, Share } from 'lucide-react';
 import { notFound } from 'next/navigation';
@@ -45,6 +46,8 @@ export default async function Page({ params }: Props) {
             <Heart className="w-5 h-5" />
           </button>
         </div>
+
+        <ProductCharacteristics product={product} />
 
         <div className="flex flex-wrap items-center justify-between gap-2.5 border-b border-b-gray-200 py-5 -mt-2">
           <div className="flex items-center gap-2 text-sm text-black hover:text-red-600 hoverEffect">
