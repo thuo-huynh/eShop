@@ -13,12 +13,12 @@ type Props = {
 export default async function Page({ params }: Props) {
   const { slug } = await params;
   const categories = await getAllCategories();
-  const category = categories.find((category: Category) => {
-    return category.slug?.current === slug;
-  });
-  if (!category) {
-    return notFound();
-  }
+  // const category = categories.find((category: Category) => {
+  //   return category.slug?.current === slug;
+  // });
+  // if (!category) {
+  //   return notFound();
+  // }
   return (
     <Container className="py-10">
       {' '}

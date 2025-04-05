@@ -152,8 +152,51 @@ export default function Page({}: Props) {
                     </Button>
                   </div>
                 </div>
-                <div className="lg:col-span-1 rounded-md">
-                  <div className="w-full bg-white p-6 rounded-lg border">
+
+                <div className="lg:col-span-1">
+                  <div className="hidden md:inline-block w-full bg-white p-6 rounded-lg border">
+                    <h2 className="text-lg font-semibold p-2">Order Summary</h2>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Subtotal</span>
+                        <PriceFormatter amount={getSubtotalPrice()} />
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Discount</span>
+                        <PriceFormatter amount={getSubtotalPrice() - getTotalPrice()} />
+                      </div>
+                      <Separator />
+                      <div className="flex justify-between">
+                        <span>Total</span>
+                        <PriceFormatter
+                          amount={getTotalPrice()}
+                          className="text-lg font-bold text-black"
+                        />
+                      </div>
+                      <Button
+                        disabled={loading}
+                        onClick={handleCheckout}
+                        className="w-full rounded-full font-semibold tracking-wide"
+                        size="lg"
+                      >
+                        Proceed to Checkout
+                      </Button>
+                      <Link
+                        href={'/'}
+                        className="flex items-center justify-center py-2 border border-darkColor/50 rounded-full hover:border-darkColor hover:bg-darkColor/5 hoverEffect"
+                      >
+                        <Image
+                          src={PaypalLogo}
+                          alt="paypalLogo"
+                          className="w-20"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:hidden fixed bottom-0 left-0 w-full bg-white pt-2">
+                  <div className="p-4 rounded-lg border mx-4">
                     <h2 className="text-lg font-semibold p-2">Order Summary</h2>
                     <div className="space-y-4">
                       <div className="flex justify-between">
